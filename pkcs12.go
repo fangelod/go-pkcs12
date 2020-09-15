@@ -308,9 +308,9 @@ func DecodeChain(pfxData []byte, password string) (privateKey interface{}, certi
 	if certificate == nil {
 		return nil, nil, nil, errors.New("pkcs12: certificate missing")
 	}
-	if privateKey == nil {
-		return nil, nil, nil, errors.New("pkcs12: private key missing")
-	}
+	// if privateKey == nil {
+	// 	return nil, nil, nil, errors.New("pkcs12: private key missing")
+	// }
 
 	return
 }
@@ -400,9 +400,9 @@ func getSafeContents(p12Data, password []byte, expectedItems int) (bags []safeBa
 		return nil, nil, err
 	}
 
-	if len(authenticatedSafe) != expectedItems {
-		return nil, nil, NotImplementedError("expected exactly two items in the authenticated safe")
-	}
+	// if len(authenticatedSafe) != expectedItems {
+	// 	return nil, nil, NotImplementedError("expected exactly two items in the authenticated safe")
+	// }
 
 	for _, ci := range authenticatedSafe {
 		var data []byte
